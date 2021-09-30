@@ -5,7 +5,7 @@ import Link from 'next/link';
 class UserItem extends React.Component {
   render() { 
     return (
-      <Link href='/profile'>
+      <Link href={`/profile/${this.props.user.id}`}>
         <a className={styles.card}>
           {this.props.user.name}
         </a>
