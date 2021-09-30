@@ -5,7 +5,6 @@ class UserList extends React.Component {
   render() { 
     return (
     <>
-      List of users:
       {this.props.users.map(user => <UserItem key={user.id} user={user} />)}
     </>
     );
