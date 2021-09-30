@@ -9,6 +9,7 @@ class Home extends React.Component {
       <div className={styles.main}>
         <h1 className={styles.title}>Index of Users</h1>
         <UserList users={this.props.users} />
+        <Button text="Create" />
       </div>
     );
   }
