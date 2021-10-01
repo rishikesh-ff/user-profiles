@@ -1,23 +1,27 @@
-import Link from "next/link";
+import axios from "axios";
 import React from "react";
+import Button from "../../components/Button";
+import styles from "../../styles/Home.module.css";
 
 class Profile extends React.Component {
   render() {
     return (
-      <div>
-        <h1>{this.props.user.name}</h1>
+      <div className={styles.main}>
+        <h1>
+          {this.props.user.firstName} {this.props.user.secondName}
+        </h1>
         <p>Email address: {this.props.user.email}</p>
-        <Link href="/">Go back to index</Link>
+        <Button text="Go back to index" url="/" />
       </div>
     );
   }
 }
 
 export const getStaticProps = async (context) => {
-  const resp = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${context.params.id}`
+  const resp = await axios.get(
+    `https://crudcrud.com/api/9d108ccecb07451a811fbf69af402ad3/users/${context.params.id}`
   );
-  const user = await resp.json();
+  const user = resp.data;
 
   return {
     props: {
@@ -27,9 +31,12 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const resp = await fetch("https://jsonplaceholder.typicode.com/users/");
-  const users = await resp.json();
-  const paths = users.map((user) => ({ params: { id: user.id.toString() } }));
+  const resp = await axios.get(
+    "https://crudcrud.com/api/9d108ccecb07451a811fbf69af402ad3/users"
+  );
+  const users = resp.data;
+  //console.log(users);
+  const paths = users.map((user) => ({ params: { id: user._id.toString() } }));
 
   return {
     paths,
