@@ -1,14 +1,15 @@
 .button {
-  color: #ffffff;
-  background-color: #0070f3;
+  color: dodgerblue;
   border-color: #0070f3;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 30px;
-  width: 250px;
+  width: 11rem;
+  background: transparent;
   text-align: center;
-  border: 1px solid #eaeaea;
+  border: 1px solid dodgerblue;
 }
 
 .button:hover {
-  box-shadow: 0px 0px 2px 2px #0070f3;
+  background: dodgerblue;
+  color: white;
 }

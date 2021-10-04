@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import Button from "../../components/Button";
 import styles from "../../styles/Home.module.css";
+import Formik, { Form, Field } from "formik";
 
 class Profile extends React.Component {
   render() {
@@ -18,9 +19,7 @@ class Profile extends React.Component {
 }
 
 export const getStaticProps = async (context) => {
-  const resp = await axios.get(
-    `https://crudcrud.com/api/9d108ccecb07451a811fbf69af402ad3/users/${context.params.id}`
-  );
+  const resp = await axios.get(`${process.env.url}/${context.params.id}`);
   const user = resp.data;
 
   return {
@@ -31,11 +30,8 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const resp = await axios.get(
-    "https://crudcrud.com/api/9d108ccecb07451a811fbf69af402ad3/users"
-  );
+  const resp = await axios.get(process.env.url);
   const users = resp.data;
-  //console.log(users);
   const paths = users.map((user) => ({ params: { id: user._id.toString() } }));
 
   return {

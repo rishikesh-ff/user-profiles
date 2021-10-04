@@ -15,7 +15,6 @@
 .card:active {
   color: #0070f3;
   border-color: #0070f3;
-  box-shadow: 0px 0px 2px 2px #0070f3;
 }
 
 .card h2 {

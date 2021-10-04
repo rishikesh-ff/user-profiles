@@ -18,10 +18,9 @@ class Home extends React.Component {
 
 export const getServerSideProps = async () => {
   const resp = await axios.get(
-    "https://crudcrud.com/api/9d108ccecb07451a811fbf69af402ad3/users"
+    "https://crudcrud.com/api/4245e89df1ab42858c11224dcc3c6467/users"
   );
   const users = resp.data;
-  console.log(users);
   return {
     props: {
       users,
