@@ -12,8 +12,14 @@
 }
 
 .submit {
-  border-radius: 10px;
+  border: 1px solid dodgerblue;
+  border-radius: 5px;
   color: white;
   background-color: dodgerblue;
   border-color: dodgerblue;
+}
+
+.submit:hover {
+  background-color: green;
+  border: 1px solid green;
 }
