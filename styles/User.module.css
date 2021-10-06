@@ -1,21 +1,21 @@
-.main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 .container div {
   display: flex;
   justify-content: space-between;
   padding: 0 2rem;
 }
 
-.inline div {
-  display: inline;
-  padding: 2rem;
+.delete {
+  background-color: white;
+  border-radius: 5px;
+  color: lightcoral;
+  border: 1px solid lightcoral;
+  width: 4rem;
+  height: 2rem;
+}
+
+.delete:hover {
+  background-color: lightcoral;
+  color: white;
 }
 
 .submit {

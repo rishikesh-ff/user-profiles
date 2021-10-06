@@ -21,24 +21,32 @@ export class Create extends Component {
           }}
         >
           {(formik) => (
-            <div>
+            <div className={styles.container}>
               <Form>
-                <div className={styles.textfield}>
+                <div>
                   <label htmlFor="firstName">first name:</label>
-                  <Field id="firstName" name="firstName" />
+                  <div>
+                    <Field id="firstName" name="firstName" />
+                  </div>
                 </div>
-                <div className={styles.textfield}>
+                <div>
                   <label htmlFor="secondName">second name:</label>
-                  <Field id="secondName" name="secondName" />
+                  <div>
+                    <Field id="secondName" name="secondName" />
+                  </div>
                 </div>
-                <div className={styles.textfield}>
+                <div>
                   <label htmlFor="email">email:</label>
-                  <Field id="email" name="email" type="email" />
+                  <div>
+                    <Field id="email" name="email" type="email" />
+                  </div>
                 </div>
-                <div className={styles.textfield}>
-                  <button type="submit" className={styles.submit}>
-                    Submit
-                  </button>
+                <div className={styles.inline}>
+                  <div>
+                    <button type="submit" className={styles.submit}>
+                      Submit
+                    </button>
+                  </div>
                 </div>
               </Form>
             </div>

@@ -3,7 +3,7 @@ import React from "react";
 import Button from "../../components/Button";
 import styles from "../../styles/Home.module.css";
 import { Formik, Form, Field } from "formik";
-import btnStyles from "../../styles/Button.module.css";
+import style from "../../styles/User.module.css";
 class Profile extends React.Component {
   constructor() {
     super();
@@ -17,22 +17,31 @@ class Profile extends React.Component {
         <div className={styles.main}>
           <h1>User Profile</h1>
           <Formik initialValues={this.props.user}>
-            <Form>
-              <div>
-                <label htmlFor="firstName">first name:</label>
-                <Field id="firstName" name="firstName" disabled />
-              </div>
-              <div>
-                <label htmlFor="secondName">second name:</label>
-                <Field id="secondName" name="secondName" disabled />
-              </div>
-              <div>
-                <label htmlFor="email">email:</label>
-                <Field id="email" name="email" type="email" disabled />
-              </div>
-            </Form>
+            <div className={style.container}>
+              <Form>
+                <div>
+                  <label htmlFor="firstName">first name:</label>
+                  <div>
+                    <Field id="firstName" name="firstName" disabled />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="secondName">second name:</label>
+                  <div>
+                    <Field id="secondName" name="secondName" disabled />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="email">email:</label>
+                  <div>
+                    <Field id="email" name="email" type="email" disabled />
+                  </div>
+                </div>
+              </Form>
+            </div>
           </Formik>
           <button
+            className={style.submit}
             onClick={() =>
               this.setState({
                 ...this.state,
@@ -63,28 +72,37 @@ class Profile extends React.Component {
               });
             }}
           >
-            <Form>
-              <div>
-                <label htmlFor="firstName">first name:</label>
-                <Field id="firstName" name="firstName" />
-              </div>
-              <div>
-                <label htmlFor="secondName">second name:</label>
-                <Field id="secondName" name="secondName" />
-              </div>
-              <div>
-                <label htmlFor="email">email:</label>
-                <Field id="email" name="email" type="email" />
-              </div>
-              <div>
-                <button type="submit" className={btnStyles.button}>
-                  Submit
-                </button>
-              </div>
-            </Form>
+            <div className={style.container}>
+              <Form>
+                <div>
+                  <label htmlFor="firstName">first name:</label>
+                  <div>
+                    <Field id="firstName" name="firstName" />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="secondName">second name:</label>
+                  <div>
+                    <Field id="secondName" name="secondName" />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="email">email:</label>
+                  <div>
+                    <Field id="email" name="email" type="email" />
+                  </div>
+                </div>
+                <div>
+                  <button type="submit" className={style.submit}>
+                    Submit
+                  </button>
+                  <button className={style.delete}>Delete</button>
+                </div>
+              </Form>
+            </div>
           </Formik>
           <button
-            className={btnStyles.cancel}
+            className={style.delete}
             onClick={() =>
               this.setState({
                 ...this.state,
