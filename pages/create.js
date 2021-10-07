@@ -1,11 +1,32 @@
 import axios from "axios";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { withRouter } from "next/router";
 import React, { Component } from "react";
 import Button from "../components/Button";
 import styles from "../styles/Create.module.css";
+import * as yup from "yup";
 
 export class Create extends Component {
   render() {
+    const validationSchema = yup.object({
+      firstName: yup
+        .string()
+        .strict(false)
+        .trim()
+        .required("First name cannot be empty."),
+      secondName: yup
+        .string()
+        .strict(false)
+        .trim()
+        .required("Second name cannot be empty."),
+      email: yup
+        .string()
+        .email("Invalid email address")
+        .required("Email cannot be empty."),
+    });
+    const renderError = (message) => (
+      <p className={styles.validationError}>{message}</p>
+    );
     return (
       <div className={styles.main}>
         <h1>Create</h1>
@@ -18,35 +39,54 @@ export class Create extends Component {
           onSubmit={(values, { resetForm }) => {
             axios.post(process.env.url, values);
             resetForm();
+            this.props.router.push("/");
           }}
+          validationSchema={validationSchema}
         >
           {(formik) => (
             <div className={styles.container}>
               <Form>
                 <div>
-                  <label htmlFor="firstName">first name:</label>
                   <div>
-                    <Field id="firstName" name="firstName" />
+                    <Field
+                      id="firstName"
+                      name="firstName"
+                      placeholder="First name"
+                      className={styles.textfield}
+                      autocomplete="off"
+                    />
+                    <ErrorMessage name="firstName" render={renderError} />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="secondName">second name:</label>
                   <div>
-                    <Field id="secondName" name="secondName" />
+                    <Field
+                      id="secondName"
+                      name="secondName"
+                      placeholder="Second name"
+                      className={styles.textfield}
+                      autocomplete="off"
+                    />
+                    <ErrorMessage name="secondName" render={renderError} />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="email">email:</label>
                   <div>
-                    <Field id="email" name="email" type="email" />
+                    <Field
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Email address"
+                      className={styles.textfield}
+                      autocomplete="off"
+                    />
+                    <ErrorMessage name="email" render={renderError} />
                   </div>
                 </div>
-                <div className={styles.inline}>
-                  <div>
-                    <button type="submit" className={styles.submit}>
-                      Submit
-                    </button>
-                  </div>
+                <div>
+                  <button type="submit" className={styles.submit}>
+                    Submit
+                  </button>
                 </div>
               </Form>
             </div>
@@ -58,4 +98,4 @@ export class Create extends Component {
   }
 }
 
-export default Create;
+export default withRouter(Create);

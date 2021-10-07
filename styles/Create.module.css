@@ -9,13 +9,13 @@
 
 .container div {
   display: flex;
-  justify-content: space-between;
-  padding: 0 2rem;
+  justify-content: center;
+  margin: 0.5rem;
 }
 
-.inline div {
-  display: inline;
-  padding: 2rem;
+.container div div {
+  display: flex;
+  flex-direction: column;
 }
 
 .submit {
@@ -29,6 +29,23 @@
 }
 
 .submit:hover {
-  background-color: green;
-  border: 1px solid green;
+  background-color: deepskyblue;
+  border: 1px solid deepskyblue;
+}
+
+.validationError {
+  margin: 0em;
+  color: red;
+  font-size: small;
+}
+
+.textfield {
+  border: 1px solid dodgerblue;
+  border-radius: 5px;
+  width: 200px;
+  height: 30px;
+}
+
+.textfield:hover {
+  box-shadow: deepskyblue;
 }
