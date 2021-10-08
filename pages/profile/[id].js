@@ -162,7 +162,6 @@ class Profile extends React.Component {
                         const resp = await axios.delete(
                           `${process.env.url}/${this.props.user._id}`
                         );
-                        console.log(resp);
                         this.props.router.push("/");
                       } catch (e) {
                         console.log(e);
