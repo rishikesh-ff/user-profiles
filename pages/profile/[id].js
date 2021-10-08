@@ -156,14 +156,16 @@ class Profile extends React.Component {
                   </button>
                   <button
                     className={style.delete}
-                    onClick={() => {
+                    onClick={async () => {
                       //console.log(`${process.env.url}/${this.props.user._id}`);
                       try {
-                        axios.delete(
+                        const resp = await axios.delete(
                           `${process.env.url}/${this.props.user._id}`
                         );
+                        console.log(resp);
                         this.props.router.push("/");
                       } catch (e) {
+                        console.log(e);
                         this.props.router.push("/");
                       }
                     }}
