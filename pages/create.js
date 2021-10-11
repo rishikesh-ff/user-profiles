@@ -24,6 +24,7 @@ export class Create extends Component {
         .email("Invalid email address")
         .required("Email cannot be empty."),
     });
+
     const renderError = (message) => (
       <p className={styles.validationError}>{message}</p>
     );
