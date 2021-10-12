@@ -6,6 +6,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import style from "../../styles/User.module.css";
 import { withRouter } from "next/router";
 import * as yup from "yup";
+import NavLink from "../../components/NavLink";
 
 class Profile extends React.Component {
   constructor() {
@@ -81,8 +82,9 @@ class Profile extends React.Component {
               </Form>
             </div>
           </Formik>
-          <button
-            className={style.submit}
+          <Button
+            text="Edit"
+            variant="submit"
             onClick={() =>
               this.setState({
                 ...this.state,
@@ -91,8 +93,8 @@ class Profile extends React.Component {
             }
           >
             Edit
-          </button>
-          <Button text="Go back to index" url="/" />
+          </Button>
+          <NavLink url="/" text="Go back to index" />
         </div>
       );
     } else {
@@ -154,8 +156,9 @@ class Profile extends React.Component {
                   <button type="submit" className={style.submit}>
                     Update
                   </button>
-                  <button
-                    className={style.delete}
+                  <Button
+                    text="Delete"
+                    variant="cancel"
                     onClick={async () => {
                       //console.log(`${process.env.url}/${this.props.user._id}`);
                       try {
@@ -169,14 +172,14 @@ class Profile extends React.Component {
                       }
                     }}
                     type="submit"
-                  >
-                    Delete
-                  </button>
+                  />
                 </div>
               </Form>
             </div>
           </Formik>
-          <button
+          <Button
+            variant="cancel"
+            text="Cancel"
             className={style.delete}
             onClick={() =>
               this.setState({
@@ -184,10 +187,8 @@ class Profile extends React.Component {
                 editing: false,
               })
             }
-          >
-            Cancel
-          </button>
-          <Button text="Go back to index" url="/" />
+          />
+          <NavLink url="/" text="Go back to index" />
         </div>
       );
     }

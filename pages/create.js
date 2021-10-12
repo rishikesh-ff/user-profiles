@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import Button from "../components/Button";
 import styles from "../styles/Create.module.css";
 import * as yup from "yup";
+import NavLink from "../components/NavLink";
 
 export class Create extends Component {
   render() {
@@ -54,7 +55,7 @@ export class Create extends Component {
                       name="firstName"
                       placeholder="First name"
                       className={styles.textfield}
-                      autocomplete="off"
+                      autoComplete="off"
                     />
                     <ErrorMessage name="firstName" render={renderError} />
                   </div>
@@ -66,7 +67,7 @@ export class Create extends Component {
                       name="secondName"
                       placeholder="Second name"
                       className={styles.textfield}
-                      autocomplete="off"
+                      autoComplete="off"
                     />
                     <ErrorMessage name="secondName" render={renderError} />
                   </div>
@@ -79,21 +80,19 @@ export class Create extends Component {
                       type="email"
                       placeholder="Email address"
                       className={styles.textfield}
-                      autocomplete="off"
+                      autoComplete="off"
                     />
                     <ErrorMessage name="email" render={renderError} />
                   </div>
                 </div>
                 <div>
-                  <button type="submit" className={styles.submit}>
-                    Submit
-                  </button>
+                  <Button variant="submit" type="submit" text="Submit" />
                 </div>
               </Form>
             </div>
           )}
         </Formik>
-        <Button text="Go back to index" url="/" />
+        <NavLink url="/" text="Go back to index" />
       </div>
     );
   }

@@ -11,18 +11,10 @@
   height: 30px;
 }
 
-.delete {
-  background-color: white;
-  border-radius: 5px;
-  color: lightcoral;
-  border: 1px solid lightcoral;
-  width: 4rem;
-  height: 2rem;
-}
-
-.delete:hover {
-  background-color: lightcoral;
-  color: white;
+.textfield:focus {
+  outline: none;
+  box-shadow: 0 0 5px deepskyblue;
+  border-color: deepskyblue;
 }
 
 .submit {
