@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import styles from "../styles/Create.module.css";
 import * as yup from "yup";
 import NavLink from "../components/NavLink";
+import StyledInput from "../components/styled/Input.styled";
 
 export class Create extends Component {
   render() {
@@ -51,10 +52,10 @@ export class Create extends Component {
                 <div>
                   <div>
                     <Field
+                      as={StyledInput}
                       id="firstName"
                       name="firstName"
                       placeholder="First name"
-                      className={styles.textfield}
                       autoComplete="off"
                     />
                     <ErrorMessage name="firstName" render={renderError} />
@@ -63,10 +64,10 @@ export class Create extends Component {
                 <div>
                   <div>
                     <Field
+                      as={StyledInput}
                       id="secondName"
                       name="secondName"
                       placeholder="Second name"
-                      className={styles.textfield}
                       autoComplete="off"
                     />
                     <ErrorMessage name="secondName" render={renderError} />
@@ -75,11 +76,11 @@ export class Create extends Component {
                 <div>
                   <div>
                     <Field
+                      as={StyledInput}
                       id="email"
                       name="email"
                       type="email"
                       placeholder="Email address"
-                      className={styles.textfield}
                       autoComplete="off"
                     />
                     <ErrorMessage name="email" render={renderError} />

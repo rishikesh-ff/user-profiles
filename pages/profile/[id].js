@@ -2,11 +2,12 @@ import axios from "axios";
 import React from "react";
 import Button from "../../components/Button";
 import styles from "../../styles/Home.module.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import style from "../../styles/User.module.css";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { withRouter } from "next/router";
 import * as yup from "yup";
 import NavLink from "../../components/NavLink";
+import StyledInput from "../../components/styled/Input.styled";
 
 class Profile extends React.Component {
   constructor() {
@@ -45,10 +46,10 @@ class Profile extends React.Component {
                 <div>
                   <div>
                     <Field
+                      as={StyledInput}
                       id="firstName"
                       name="firstName"
                       placeholder="First name"
-                      className={style.textfield}
                       disabled
                     />
                     <ErrorMessage name="firstName" render={renderError} />
@@ -57,10 +58,10 @@ class Profile extends React.Component {
                 <div>
                   <div>
                     <Field
+                      as={StyledInput}
                       id="secondName"
                       name="secondName"
                       placeholder="Second name"
-                      className={style.textfield}
                       disabled
                     />
                     <ErrorMessage name="secondName" render={renderError} />
@@ -69,11 +70,11 @@ class Profile extends React.Component {
                 <div>
                   <div>
                     <Field
+                      as={StyledInput}
                       id="email"
                       name="email"
                       type="email"
                       placeholder="Email address"
-                      className={style.textfield}
                       disabled
                     />
                     <ErrorMessage name="email" render={renderError} />
@@ -121,10 +122,10 @@ class Profile extends React.Component {
                 <div>
                   <div>
                     <Field
+                      as={StyledInput}
                       id="firstName"
                       name="firstName"
                       placeholder="First name"
-                      className={style.textfield}
                     />
                     <ErrorMessage name="firstName" render={renderError} />
                   </div>
@@ -132,10 +133,10 @@ class Profile extends React.Component {
                 <div>
                   <div>
                     <Field
+                      as={StyledInput}
                       id="secondName"
                       name="secondName"
                       placeholder="Second name"
-                      className={style.textfield}
                     />
                     <ErrorMessage name="secondName" render={renderError} />
                   </div>
@@ -143,11 +144,11 @@ class Profile extends React.Component {
                 <div>
                   <div>
                     <Field
+                      as={StyledInput}
                       id="email"
                       name="email"
                       type="email"
                       placeholder="Email address"
-                      className={style.textfield}
                     />
                     <ErrorMessage name="email" render={renderError} />
                   </div>
@@ -160,7 +161,6 @@ class Profile extends React.Component {
                     text="Delete"
                     variant="cancel"
                     onClick={async () => {
-                      //console.log(`${process.env.url}/${this.props.user._id}`);
                       try {
                         const resp = await axios.delete(
                           `${process.env.url}/${this.props.user._id}`
