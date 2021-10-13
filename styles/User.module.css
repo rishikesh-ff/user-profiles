@@ -3,31 +3,3 @@
   justify-content: space-evenly;
   padding: 0.5rem;
 }
-
-.textfield {
-  border: 1px solid dodgerblue;
-  border-radius: 5px;
-  width: 200px;
-  height: 30px;
-}
-
-.textfield:focus {
-  outline: none;
-  box-shadow: 0 0 5px deepskyblue;
-  border-color: deepskyblue;
-}
-
-.submit {
-  border: 1px solid dodgerblue;
-  border-radius: 5px;
-  color: white;
-  background-color: dodgerblue;
-  border-color: dodgerblue;
-  width: 4rem;
-  height: 2rem;
-}
-
-.submit:hover {
-  background-color: deepskyblue;
-  border: 1px solid deepskyblue;
-}

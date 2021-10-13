@@ -154,9 +154,7 @@ class Profile extends React.Component {
                   </div>
                 </div>
                 <div className={style.buttons}>
-                  <button type="submit" className={style.submit}>
-                    Update
-                  </button>
+                  <Button type="submit" variant="submit" text="Update" />
                   <Button
                     text="Delete"
                     variant="cancel"
@@ -180,7 +178,6 @@ class Profile extends React.Component {
           <Button
             variant="cancel"
             text="Cancel"
-            className={style.delete}
             onClick={() =>
               this.setState({
                 ...this.state,

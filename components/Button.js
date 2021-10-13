@@ -15,7 +15,11 @@ export default class Button extends Component {
     }
     return (
       <>
-        <StyledButton variant={this.props.variant} onClick={this.props.onClick}>
+        <StyledButton
+          type={this.props.type}
+          variant={this.props.variant}
+          onClick={this.props.onClick}
+        >
           {this.props.text}
         </StyledButton>
       </>
